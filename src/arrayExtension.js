@@ -21,5 +21,8 @@
  * @returns {Array} A copy of the source array with an additional number.
  */
 export function immutablePushNumber (source, number) {
-  // TODO: Write your code here.
+  const source2 = source
+  source2.push(number)
+
+  return source2
 }
