@@ -22,6 +22,18 @@
  */
 export function immutablePushNumber (source, number) {
   const source2 = source
+  if (!Array.isArray(source)) {
+    throw new TypeError('Is not an array.')
+  }
+
+  for (let i = 0; i < source.length; i++) {
+    if (isNaN(source[number[i]])) {
+      throw new TypeError('Is not a number.')
+    } else {
+      source[number[i]] += 1
+    }
+  }
+
   source2.push(number)
 
   return source2
