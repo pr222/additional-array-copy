@@ -21,19 +21,18 @@
  * @returns {Array} A copy of the source array with an additional number.
  */
 export function immutablePushNumber (source, number) {
-  const source2 = source
+  // Validate the input.
   if (!Array.isArray(source)) {
     throw new TypeError('Is not an array.')
   }
 
-  for (let i = 0; i < source.length; i++) {
-    if (isNaN(source[number[i]])) {
-      throw new TypeError('Is not a number.')
-    } else {
-      source[number[i]] += 1
-    }
+  if (typeof number !== 'number') {
+    throw new TypeError('Is not a number.')
   }
 
+  // Copy array from original array.
+  const source2 = Array.from(source)
+  // Add a number to end of copied array.
   source2.push(number)
 
   return source2
